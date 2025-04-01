@@ -1,8 +1,9 @@
 // components/HeroSection.js
 "use client";
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
+// Styled components for layout and styling
 const HeroContainer = styled.section`
   display: flex;
   flex-direction: column;
@@ -69,16 +70,43 @@ const HeroButton = styled.a`
   color: #fff;
   cursor: pointer;
   transition: background 0.3s;
+  text-decoration: none;
 
   &:hover {
     background: rgba(255, 255, 255, 0.1);
   }
 `;
 
+// Typewriter component to animate text
+function Typewriter({ text, speed = 100 }) {
+  const [displayedText, setDisplayedText] = useState("");
+
+  useEffect(() => {
+    let currentIndex = 0;
+    const interval = setInterval(() => {
+      // Append the next character from the text string
+      setDisplayedText(text.slice(0, currentIndex + 1));
+      currentIndex++;
+      // Clear interval when full text has been displayed
+      if (currentIndex === text.length) {
+        clearInterval(interval);
+      }
+    }, speed);
+
+    // Clean up the interval on component unmount or text change
+    return () => clearInterval(interval);
+  }, [text, speed]);
+
+  return <span>{displayedText}</span>;
+}
+
 export default function HeroSection() {
   return (
     <HeroContainer>
-      <HeroTitle>Hello, I'm Skyler Hawkins.</HeroTitle>
+      <HeroTitle>
+        {/* Using the Typewriter component to animate the hero title */}
+        <Typewriter text="Hello, I'm Skyler Hawkins." speed={100} />
+      </HeroTitle>
       <HeroSubtitle>A passionate Software Engineer.</HeroSubtitle>
       <HeroTagline>Fullstack Developer - AI Enthusiast</HeroTagline>
       
@@ -102,7 +130,7 @@ export default function HeroSection() {
       
       <ButtonGroup>
         <HeroButton href="#about">About Me</HeroButton>
-        <HeroButton href="#projects">Projects</HeroButton>
+        <HeroButton href="/projects">Projects</HeroButton>
       </ButtonGroup>
     </HeroContainer>
   );

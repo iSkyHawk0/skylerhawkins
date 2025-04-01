@@ -1,19 +1,24 @@
 // components/ExperienceSection.js
 import React from 'react';
 import styled from 'styled-components';
+import { useState, useEffect } from 'react';
+import { useRef } from 'react';
+import GridBackground from '../components/GridBackground';
 
 const Section = styled.section`
   padding: 4rem 15rem;
   min-height: 100vh;
-
+  position: relative;
+  background: transparent; /* Make the background transparent to see the grid */
+  background-color: None;
   color: #fff;
-  font-family: 'YourBodyFont', sans-serif; /* Default body font */
+  // font-family: 'YourBodyFont', sans-serif; /* Default body font */
 `;
 
 const Title = styled.h2`
   font-size: 4.2rem;
   margin-bottom: 2rem;
-  font-family: 'YourTitleFont', sans-serif; /* Change as needed */
+  // font-family: 'YourTitleFont', sans-serif; /* Change as needed */
 `;
 
 // This container wraps all experience items and adds a thin grey border on its left.
@@ -150,6 +155,7 @@ export default function ExperienceSection() {
   return (
     <Section id="experience">
       <Title>Experience</Title>
+      <GridBackground /> {/* Optional: Add grid background for visual effect */}
       <ContentContainer>
         {experienceData.map((exp, index) => (
           <ExperienceItem  key={index} experience={exp} />

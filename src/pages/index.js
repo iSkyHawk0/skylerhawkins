@@ -15,10 +15,11 @@ import EducationSection from '@/components/EducationSection';
 const PageWrapper = styled.div`
   position: relative;
   width: 100%;
-
+  
   overflow-x: hidden;
-  background-color: rgb(1, 1, 7); /* Dark blue color */
-  font-family: Arial, sans-serif;
+  background-color: rgba(1, 1, 7, 0.5); /* Dark blue color */
+  background: transparent;
+  // font-family: Arial, sans-serif;
 `;
 
 const LandingWrapper = styled.div`

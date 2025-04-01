@@ -14,6 +14,7 @@ const Title = styled.h2`
   font-size: 4.2rem;
   margin-bottom: 2rem;
   font-family: 'YourTitleFont', sans-serif; /* Change as needed */
+  text-align: left;
 `;
 
 // This container wraps all education items and adds a thin white border on its left.

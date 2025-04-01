@@ -1,7 +1,7 @@
 // pages/education.js
 import React from 'react';
 import NavigationBar from '../components/NavigationBar';
-import ProjectsSection from '../components/EducationSection';
+import ProjectsSection from '../components/ProjectsSection';
 
 export default function EducationPage() {
   return (

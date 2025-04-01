@@ -1,139 +1,125 @@
 // components/ProjectsSection.js
+"use client";
 import React from 'react';
 import styled from 'styled-components';
+import ProjectCard from '../components/ProjectCard'; // Adjust the path as necessary
 
 const Section = styled.section`
   padding: 4rem 15rem;
   min-height: 100vh;
+  background: #010107; /* Dark background for the projects section */
   color: #fff;
-  font-family: 'YourBodyFont', sans-serif; /* Default body font */
 `;
 
 const Title = styled.h2`
   font-size: 4.2rem;
   margin-bottom: 2rem;
-  font-family: 'YourTitleFont', sans-serif; /* Change as needed */
+  font-family: 'YourTitleFont', sans-serif;
 `;
 
-// This container wraps all project items and adds a thin grey border on its left.
+const SubTitle = styled.h3`
+  font-size: 3rem;
+  margin: 3rem 0 1.5rem;
+  font-family: 'YourSubtitleFont', sans-serif;
+`;
+
 const ContentContainer = styled.div`
-  border-left: 1px solid grey; /* Light grey color */
-  padding-left: 1.5rem;
-  margin-left: 0.5rem;
-  position: relative;
-
-  /* Outer circle: a thin grey ring atop the border */
-  &::before {
-    content: '';
-    position: absolute;
-    top: -0.47rem;
-    left: -0.51rem;
-    width: 0.8rem;
-    height: 0.8rem;
-    border: 1px solid grey;
-    border-radius: 50%;
-    transform: translateY(-50%);
-  }
-
-  /* Inner circle: blue circle centered inside the outer ring */
-  &::after {
-    content: '';
-    position: absolute;
-    top: -0.47rem;
-    left: -0.31rem;
-    width: 0.48rem;
-    height: 0.48rem;
-    background-color: blue;
-    border-radius: 50%;
-    transform: translateY(-50%);
-  }
-`;
-
-const ProjectItemWrapper = styled.div`
-  margin-bottom: 3rem;
-`;
-
-// Flex container for the header portion: project title and logo.
-const ProjectHeader = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 2rem; /* Space between project cards */
 `;
-
-const ProjectTitle = styled.h3`
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  font-family: 'YourHeaderFont', sans-serif; /* Change as needed */
-`;
-
-// Logo image for the project.
-const Logo = styled.img`
-  width: 3rem;
-  height: 3rem;
-  object-fit: contain;
-  margin-left: 1rem;
-`;
-
-const Subtitle = styled.p`
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-  color: #aaa;
-  font-family: 'YourBodyFont', sans-serif; /* Change as needed */
-`;
-
-const DetailsList = styled.ul`
-  list-style: disc;
-  padding-left: 1.5rem;
-`;
-
-const DetailItem = styled.li`
-  font-size: 1.0rem;
-  margin-bottom: 0.3rem;
-  font-family: Roboto; /* Change as needed */
-`;
-
-// ProjectItem renders one project entry.
-function ProjectItem({ project }) {
-  return (
-    <ProjectItemWrapper>
-      <ProjectHeader>
-        <ProjectTitle>{project.title}</ProjectTitle>
-        {/* Replace "/rewear-logo.png" with your actual project logo file in the public directory */}
-        {/* <Logo src={project.logo} alt="Project Logo" /> */}
-      </ProjectHeader>
-      <Subtitle>{project.locationDuration}</Subtitle>
-      <DetailsList>
-        {project.details.map((detail, index) => (
-          <DetailItem key={index}>{detail}</DetailItem>
-        ))}
-      </DetailsList>
-    </ProjectItemWrapper>
-  );
-}
 
 export default function ProjectsSection() {
   const projectData = [
     {
-      title: "ReWear, Software Development Lead: NittanyAI Challenge",
-      locationDuration: "State College, PA | Dec 2023 – Feb 2024",
-      details: [
-        "Led the development of an AI-powered fashion classification tool.",
-        "Developed a deep learning model in TensorFlow achieving 98% accuracy in clothing recognition.",
-        "Integrated React for a dynamic UI, Next.js for backend, and Firebase for data management."
-      ],
-      logo: "/rewear-logo.png"
-    }
+      title: "ReWear",
+      category: "AI/ML",
+      description:
+        "Developed for 2024 NittanyAI Challenge. AI-powered fashion classification tool. Developed a deep learning model in TensorFlow achieving 98% accuracy in clothing recognition. Integrated React for a dynamic UI, Next.js for backend, and Firebase for data management.",
+      githubUrl: "https://github.com/lr619/FashionAIs.to", // Placeholder GitHub URL
+      projectImage: "/rewear-logo.png", // Used as the title image for the project
+    },
+    {
+      title: "Minimax Chess Bot",
+      category: "AI/ML", // Default category when unsure
+      description:
+        "A project implementing a chess bot using the minimax algorithm. More details coming soon.",
+      githubUrl: "https://github.com/Skyler-Hawkins/Chess_Bot",
+      projectImage: "/chess-bot-placeholder.png", // Update with an actual image if available
+    },
+    // Skeleton for Pokemon CLI Database
+    {
+      title: "Pokemon CLI Database",
+      category: "Websites", // Default category when unsure
+      description:
+        "A CLI-based application for browsing and querying Pokémon data. More details coming soon.",
+      githubUrl: "https://github.com/Skyler-Hawkins/PokemonCLI",
+      projectImage: "/Pikachu.png", // Update with an actual image if available
+    },
+    {
+      title: "BlockSwap",
+      category: "Websites", // Default category when unsure
+      description:
+        "A web3 based cryptocurrency swap page. Implemented on the Ethereum blockchain using Solidity and React. Implemented and tested on the BNB testnet.",
+      githubUrl: "https://github.com/Skyler-Hawkins/BlockVote",
+      projectImage: "/BlockSwap.png", // Update with an actual image if available
+    },
+    // Skeleton for FitQuest
+    {
+      title: "FitQuest",
+      category: "Websites", // Default category when unsure
+      description:
+        "My first ever website developed using React.A fitness plan generating platform. Taught me the basics of React states and how to safely use external API keys on a server-side generated website.",
+      githubUrl: "https://github.com/Skyler-Hawkins/FitQuest",
+      projectImage: "/fitquest.png", // Update with an actual image if available
+    },
     // Add more projects as needed.
   ];
+
+  // Filter projects by category
+  const websitesProjects = projectData.filter(
+    (proj) => proj.category === "Websites"
+  );
+  const aiProjects = projectData.filter((proj) => proj.category === "AI/ML");
 
   return (
     <Section id="projects">
       <Title>Projects</Title>
-      <ContentContainer>
-        {projectData.map((proj, index) => (
-          <ProjectItem key={index} project={proj} />
-        ))}
-      </ContentContainer>
+      {aiProjects.length > 0 && (
+        <>
+          <SubTitle>AI/ML</SubTitle>
+          <ContentContainer>
+            {aiProjects.map((proj, index) => (
+              <ProjectCard
+                key={index}
+                title={proj.title}
+                description={proj.description}
+                githubUrl={proj.githubUrl}
+                projectImage={proj.projectImage}
+              />
+            ))}
+          </ContentContainer>
+        </>
+      )}
+
+      {websitesProjects.length > 0 && (
+        <>
+          <SubTitle>Websites</SubTitle>
+          <ContentContainer>
+            {websitesProjects.map((proj, index) => (
+              <ProjectCard
+                key={index}
+                title={proj.title}
+                description={proj.description}
+                githubUrl={proj.githubUrl}
+                projectImage={proj.projectImage}
+              />
+            ))}
+          </ContentContainer>
+        </>
+      )}
+
+
     </Section>
   );
 }
