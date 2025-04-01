@@ -33,13 +33,35 @@ const HeroTagline = styled.p`
   margin: 1rem 0;
 `;
 
+// IconGroup displays GitHub and LinkedIn icons
+const IconGroup = styled.div`
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+`;
+
+const IconLink = styled.a`
+  display: inline-block;
+  transition: opacity 0.3s;
+  
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
+const IconImage = styled.img`
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+`;
+
 const ButtonGroup = styled.div`
   display: flex;
   gap: 1rem;
   margin-top: 1.5rem;
 `;
 
-const HeroButton = styled.button`
+const HeroButton = styled.a`
   padding: 0.8rem 1.5rem;
   font-size: 1rem;
   border: 1px solid #fff;
@@ -59,9 +81,28 @@ export default function HeroSection() {
       <HeroTitle>Hello, I'm Skyler Hawkins.</HeroTitle>
       <HeroSubtitle>A passionate Software Engineer.</HeroSubtitle>
       <HeroTagline>Fullstack Developer - AI Enthusiast</HeroTagline>
+      
+      {/* Social icons for GitHub and LinkedIn */}
+      <IconGroup>
+        <IconLink 
+          href="https://github.com/Skyler-Hawkins" 
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          <IconImage src="/github-mark-white.svg" alt="GitHub" />
+        </IconLink>
+        <IconLink 
+          href="https://www.linkedin.com/in/skyler-hawkins-19b17b204/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          <IconImage src="/LI-In-Bug.png" alt="LinkedIn" />
+        </IconLink>
+      </IconGroup>
+      
       <ButtonGroup>
-        <HeroButton>About Me</HeroButton>
-        <HeroButton>Projects</HeroButton>
+        <HeroButton href="#about">About Me</HeroButton>
+        <HeroButton href="#projects">Projects</HeroButton>
       </ButtonGroup>
     </HeroContainer>
   );

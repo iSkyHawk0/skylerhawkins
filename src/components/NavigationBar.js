@@ -1,5 +1,6 @@
 // components/NavigationBar.js
 import React from 'react';
+import Link from 'next/link';
 import styled from 'styled-components';
 
 const Nav = styled.nav`
@@ -12,13 +13,17 @@ const Nav = styled.nav`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 999; /* Increased z-index ensures nav is always on top */
+  z-index: 999;
+`;
+
+const NavItems = styled.div`
+  display: flex;
+  gap: 1.5rem;
 `;
 
 const NavItem = styled.a`
   color: #fff;
-  text-decoration: none;
-  margin-left: 1.5rem;
+  text-decoration: none; /* removes underline */
   cursor: pointer;
 `;
 
@@ -26,13 +31,21 @@ export default function NavigationBar() {
   return (
     <Nav>
       <div style={{ fontWeight: 'bold', color: '#fff' }}>Skyler Hawkins</div>
-      <div>
-        <NavItem href="#experience">Experience</NavItem>
-        <NavItem href="#skills">Skills</NavItem>
-        <NavItem href="#projects">Projects</NavItem>
-        <NavItem href="#about">About Me</NavItem>
-        <NavItem href="#contact">Contact Me</NavItem>
-      </div>
+      <NavItems>
+        <Link href="/" passHref legacyBehavior>
+          <NavItem>Home</NavItem>
+        </Link>
+        <Link href="/experience" passHref legacyBehavior>
+          <NavItem>Experience</NavItem>
+        </Link>
+        <Link href="/education" passHref legacyBehavior>
+          <NavItem>Education</NavItem>
+        </Link>
+        <Link href="/projects" passHref legacyBehavior>
+          <NavItem>Projects</NavItem>
+        </Link>
+        {/* Add /contact if desired */}
+      </NavItems>
     </Nav>
   );
 }

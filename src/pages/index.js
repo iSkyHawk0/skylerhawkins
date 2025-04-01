@@ -14,8 +14,11 @@ import EducationSection from '@/components/EducationSection';
 
 const PageWrapper = styled.div`
   position: relative;
+  width: 100%;
+
   overflow-x: hidden;
-  background-color: #111;
+  background-color: rgb(1, 1, 7); /* Dark blue color */
+  font-family: Arial, sans-serif;
 `;
 
 const LandingWrapper = styled.div`
@@ -38,18 +41,18 @@ export default function Home() {
       <NavWrapper>
         <NavigationBar />
       </NavWrapper>
-      <LandingWrapper>
+      <LandingWrapper >
         <AnimatedBackground />
-        <ContentWrapper>
+        <ContentWrapper id = "home">
           <HeroSection />
         </ContentWrapper>
       </LandingWrapper>
-      <EducationSection />
+      {/* <EducationSection />
       <ExperienceSection />
-      <SkillsSection />
-      <ProjectsSection />
+      <SkillsSection /> */}
+      {/* <ProjectsSection /> */}
       <AboutMeSection />
-      <ContactMeSection />
+      {/* <ContactMeSection /> */}
     </PageWrapper>
   );
 }
