@@ -93,7 +93,7 @@ export default function GithubWidget({
        
           <WidgetText>{text}</WidgetText>
           <a href={"https://github.com/Skyler-Hawkins"} target="_blank" rel="noopener noreferrer">
-          <GithubLogo src="/github-mark-white.svg" alt="GitHub Logo" />
+          <GithubLogo src="github-mark-white.svg" alt="GitHub Logo" />
           </a>
       </WidgetContent>
     </WidgetContainer>

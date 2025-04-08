@@ -81,7 +81,7 @@ export default function ProjectsSection() {
       description:
         "A CLI-based application for browsing and querying Pokémon data. More details coming soon.",
       githubUrl: "https://github.com/Skyler-Hawkins/PokemonCLI",
-      projectImage: "Pikachu.png", // Update with an actual image if available
+      projectImage: "pikachu.png", // Update with an actual image if available
     },
     {
       title: "BlockSwap",
