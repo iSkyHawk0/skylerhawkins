@@ -14,6 +14,7 @@ const Nav = styled.nav`
   top: 0;
   left: 0;
   z-index: 999;
+  font-size: 1.2rem;
 `;
 
 const NavItems = styled.div`

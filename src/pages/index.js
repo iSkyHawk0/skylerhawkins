@@ -20,7 +20,8 @@ const PageWrapper = styled.div`
   background-color: rgba(1, 1, 7, 0.5); /* Dark blue color */
   background: transparent;
   // font-family: Arial, sans-serif;
-`;
+  font-size: 1.2rem;
+  `;
 
 const LandingWrapper = styled.div`
   position: relative;

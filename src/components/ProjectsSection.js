@@ -29,7 +29,7 @@ const Section = styled.section`
   `;
 
 const Title = styled.h2`
-  font-size: 4.2rem;
+  font-size: 4.7rem;
   margin-bottom: 2rem;
   font-family: 'YourTitleFont', sans-serif;
   z-index: 2;
@@ -37,7 +37,7 @@ const Title = styled.h2`
 
 const SubTitle = styled.h3`
 z-index: 2;
-font-size: 3rem;
+font-size: 3.5rem;
   margin: 3rem 0 1.5rem;
   font-family: 'YourSubtitleFont', sans-serif;
 `;
@@ -49,9 +49,10 @@ const ContentContainer = styled.div`
 `;
 const TextContainer = styled.div`
   flex: 1;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   line-height: 1.6;
   font-family: 'Arial', sans-serif;
+
   align-items: center;
   text-align: center;
   justify-content: center;

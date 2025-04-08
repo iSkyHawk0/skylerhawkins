@@ -77,7 +77,7 @@ const ExperienceHeader = styled.div`
 `;
 
 const ExperienceTitle = styled.h3`
-  font-size: 1.5rem;
+  font-size: 2.2rem;
   margin-bottom: 0.5rem;
   font-family: 'YourHeaderFont', sans-serif; /* Change as needed */
 `;
@@ -93,7 +93,7 @@ const Logo = styled.img`
 `;
 
 const Subtitle = styled.p`
-  font-size: 0.9rem;
+  font-size: 1.8rem;
   margin-bottom: 0.5rem;
   color: #aaa;
   font-family: 'YourBodyFont', sans-serif; /* Change as needed */
@@ -105,7 +105,7 @@ const DetailsList = styled.ul`
 `;
 
 const DetailItem = styled.li`
-  font-size: 1.0rem;
+  font-size: 1.2rem;
   margin-bottom: 0.3rem;
   font-family: Roboto; /* Change as needed */
 `;
@@ -139,7 +139,7 @@ export default function ExperienceSection() {
         "Utilized Python’s Flask and JavaScript’s React for backend communication and frontend developer UI, built Docker image to enable usage for wider teams on Linux-based machines.",
         "Worked in AGILE development team, utilizing GitLab for code repository management."
       ],
-      logo: "/peraton_logo.png"  // Place your Peraton logo in public folder
+      logo: "peraton_logo.png"  // Place your Peraton logo in public folder
     },
     {
       title: "Peraton-Remotec, Systems Engineer Intern – Defense Mission Systems",
@@ -149,7 +149,7 @@ export default function ExperienceSection() {
         "Implemented a secure Virtual Network Computing (VNC) connection for Linux-based SSH remote access.",
         "Optimized technician workflow by reducing remote diagnostics time by ~80%."
       ],
-      logo: "/peraton_logo.png"  // Place your Peraton-Remotec logo in public folder
+      logo: "peraton_logo.png"  // Place your Peraton-Remotec logo in public folder
     },
     {
       title: "Pennsylvania State University, Artificial Intelligence Researcher",
@@ -158,7 +158,7 @@ export default function ExperienceSection() {
         "Researched methods to improve LLM interpretation of graph-theory queries using TensorFlow.",
         "Designed testing frameworks to evaluate improvements in graph-based question-answering models."
       ],
-      logo: "/psu_logo.png"  // Place your PSU logo in public folder
+      logo: "psu_logo.png"  // Place your PSU logo in public folder
     }
   ];
 

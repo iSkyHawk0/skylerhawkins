@@ -162,7 +162,7 @@ export default function ProjectCard({
             <a href={githubUrl} target="_blank" rel="noopener noreferrer">
               <GithubLogoWrapper>
                 <Image
-                  src="/github-mark-white.svg"
+                  src="github-mark-white.svg"
                   alt="GitHub Logo"
                   layout="fill"
                   objectFit="contain"
