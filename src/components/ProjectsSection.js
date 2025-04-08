@@ -64,7 +64,7 @@ export default function ProjectsSection() {
       description:
         "Developed for 2024 NittanyAI Challenge. AI-powered fashion classification tool. Developed a deep learning model in TensorFlow achieving 98% accuracy in clothing recognition. Integrated React for a dynamic UI, Next.js for backend, and Firebase for data management.",
       githubUrl: "https://github.com/lr619/FashionAIs.to", // Placeholder GitHub URL
-      projectImage: "/rewear_logo.png", // Used as the title image for the project
+      projectImage: "rewear_logo.png", // Used as the title image for the project
     },
     {
       title: "Minimax Chess Bot",
@@ -81,7 +81,7 @@ export default function ProjectsSection() {
       description:
         "A CLI-based application for browsing and querying Pokémon data. More details coming soon.",
       githubUrl: "https://github.com/Skyler-Hawkins/PokemonCLI",
-      projectImage: "/Pikachu.png", // Update with an actual image if available
+      projectImage: "Pikachu.png", // Update with an actual image if available
     },
     {
       title: "BlockSwap",
@@ -89,7 +89,7 @@ export default function ProjectsSection() {
       description:
         "A web3 based cryptocurrency swap page. Implemented on the Ethereum blockchain using Solidity and React. Implemented and tested on the BNB testnet.",
       githubUrl: "https://github.com/Skyler-Hawkins/BlockVote",
-      projectImage: "/BlockSwap.png", // Update with an actual image if available
+      projectImage: "BlockSwap.png", // Update with an actual image if available
     },
     // Skeleton for FitQuest
     {
@@ -98,7 +98,7 @@ export default function ProjectsSection() {
       description:
         "React-based fitness plan generation website. This was my first ever web develpoment project!  It taught me the basics of React states and how to safely use external API keys on a server-side generated website.",
       githubUrl: "https://github.com/Skyler-Hawkins/FitQuest",
-      projectImage: "/fitquest.png", // Update with an actual image if available
+      projectImage: "fitquest.png", // Update with an actual image if available
     },
     // Add more projects as needed.
   ];
