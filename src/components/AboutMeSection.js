@@ -1,6 +1,7 @@
 // components/AboutMeSection.js
 import React from 'react';
 import styled from 'styled-components';
+import Image from 'next/image';
 
 const Section = styled.section`
   padding: 4rem 15rem;
@@ -37,14 +38,14 @@ const Row = styled.div`
   }
 `;
 
-const Image = styled.img`
-  width: 20rem;
-  height: auto;
-  border-radius: 8px;
-  object-fit: cover;
-  object-position: center; /* Ensure the image's center is used */
-  border: 2px solid #fff; /* Optional: adds a white border around the image */
-`;
+// const Image = styled.img`
+//   width: 20rem;
+//   height: auto;
+//   border-radius: 8px;
+//   object-fit: cover;
+//   object-position: center; /* Ensure the image's center is used */
+//   border: 2px solid #fff; /* Optional: adds a white border around the image */
+// `;
 
 const TextContainer = styled.div`
   flex: 1;
@@ -61,7 +62,18 @@ export default function AboutMeSection() {
     <Section id="about">
       <Title>About Me</Title>
       <Row>
-        <Image src="/IMG_5967.jpeg" alt="Professional Profile" />
+        <Image
+          src="IMG_5967.jpeg"
+          alt="Professional Profile"
+          width={320}
+          height={240}
+          style={{
+            borderRadius: '8px',
+            objectFit: 'cover',
+            objectPosition: 'center',
+            border: '2px solid #fff'
+          }}
+        />
         <TextContainer>
           <Paragraph>
             Hi, I'm Skyler. I am a fourth-year student at Penn State, studying Computer Science with a minor in Mathematics. 
@@ -74,7 +86,18 @@ export default function AboutMeSection() {
         </TextContainer>
       </Row>
       <Row>
-        <Image src="/IMG_5966.jpeg" alt="Personal Profile" />
+        <Image
+          src="IMG_5966.jpeg"
+          alt="Personal Profile"
+          width={320}
+          height={240}
+          style={{
+            borderRadius: '8px',
+            objectFit: 'cover',
+            objectPosition: 'center',
+            border: '2px solid #fff'
+          }}
+        />
         <TextContainer>
           <Paragraph>
             Beyond coding, I lead an active lifestyle. I competed in Taekwondo from ages 10 to 18, earning the PA State Champion title in 2016, 2017, 2018, and 2020. 

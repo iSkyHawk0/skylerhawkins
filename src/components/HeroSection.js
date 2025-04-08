@@ -2,6 +2,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import Image from 'next/image';
 
 // Styled components for layout and styling
 const HeroContainer = styled.section`
@@ -50,11 +51,7 @@ const IconLink = styled.a`
   }
 `;
 
-const IconImage = styled.img`
-  width: 2rem;
-  height: 2rem;
-  object-fit: contain;
-`;
+
 
 const ButtonGroup = styled.div`
   display: flex;
@@ -117,14 +114,14 @@ export default function HeroSection() {
           target="_blank" 
           rel="noopener noreferrer"
         >
-          <IconImage src="/github-mark-white.svg" alt="GitHub" />
+          <Image src="/github-mark-white.svg" alt="GitHub" width={32} height={32} />
         </IconLink>
         <IconLink 
           href="https://www.linkedin.com/in/skyler-hawkins-19b17b204/" 
           target="_blank" 
           rel="noopener noreferrer"
         >
-          <IconImage src="/LI-In-Bug.png" alt="LinkedIn" />
+          <Image src="/LI-In-Bug.png" alt="LinkedIn" width={32} height={30} />
         </IconLink>
       </IconGroup>
       
