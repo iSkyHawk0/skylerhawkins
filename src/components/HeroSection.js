@@ -3,10 +3,11 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
+import Link from 'next/link';
 
 // Define whether we're in production (to adjust image paths)
 const isProd = process.env.NODE_ENV === 'production';
-
+console.log("PRODUCTION: " + isProd); // Debugging line to check if in production
 // Helper function: if in production, prepend the subpath to image URLs.
 // This ensures that an image like "/github-mark-white.svg"
 // becomes "/skylerhawkins/github-mark-white.svg" when deployed.
@@ -169,7 +170,7 @@ export default function HeroSection() {
       
       <ButtonGroup>
         <HeroButton href="#about">About Me</HeroButton>
-        <HeroButton href="/projects">Projects</HeroButton>
+        <Link href="/projects">Projects</Link>
       </ButtonGroup>
     </HeroContainer>
   );
