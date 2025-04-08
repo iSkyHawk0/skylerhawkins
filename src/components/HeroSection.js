@@ -40,6 +40,8 @@ const IconGroup = styled.div`
   display: flex;
   gap: 1rem;
   margin: 1.5rem 0;
+  width: 10%;
+  justify-content: center;
 `;
 
 const IconLink = styled.a`
@@ -73,6 +75,21 @@ const HeroButton = styled.a`
     background: rgba(255, 255, 255, 0.1);
   }
 `;
+
+const LogoWrapper = styled.div`
+  position: relative;
+  width: 4vw;
+  height: 4vw;
+  margin: 0rem;
+  padding-bottom: 10px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+  }
+`;
+
 
 // Typewriter component to animate text
 function Typewriter({ text, speed = 100 }) {
@@ -114,24 +131,28 @@ export default function HeroSection() {
           target="_blank" 
           rel="noopener noreferrer"
         >
+        <LogoWrapper>
         <Image
           src="github-mark-white.svg"
           alt="GitHub Logo"
           layout="fill"
           objectFit="contain"
         />
+        </LogoWrapper>
         </IconLink>
         <IconLink 
           href="https://www.linkedin.com/in/skyler-hawkins-19b17b204/" 
           target="_blank" 
           rel="noopener noreferrer"
         >
+        <LogoWrapper>
         <Image
           src="LI-In-Bug.png"
           alt="GitHub Logo"
           layout="fill"
           objectFit="contain"
         />
+        </LogoWrapper>
         </IconLink>
       </IconGroup>
       
