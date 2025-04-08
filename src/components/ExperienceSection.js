@@ -5,6 +5,14 @@ import { useState, useEffect } from 'react';
 import { useRef } from 'react';
 import GridBackground from '../components/GridBackground';
 
+// Determine if we're in production.
+const isProd = process.env.NODE_ENV === 'production';
+// Helper function to fix image paths: in production, prepend '/skylerhawkins/' if not already present.
+const fixImagePath = (path) =>
+  isProd && !path.startsWith('/skylerhawkins')
+    ? `/skylerhawkins${path.startsWith('/') ? '' : '/'}${path}`
+    : path;
+
 const Section = styled.section`
   padding: 4rem 15rem;
   min-height: 100vh;
@@ -14,15 +22,12 @@ const Section = styled.section`
   color: #fff;
   // font-family: 'YourBodyFont', sans-serif; /* Default body font */
   
-
-    @media (max-width: 1024px) {
+  @media (max-width: 1024px) {
     padding: 4rem 5rem;
   }
-
   @media (max-width: 768px) {
     padding: 4rem 2rem;
   }
-  
 `;
 
 const Title = styled.h2`
@@ -31,7 +36,6 @@ const Title = styled.h2`
   // font-family: 'YourTitleFont', sans-serif; /* Change as needed */
 `;
 
-// This container wraps all experience items and adds a thin grey border on its left.
 const ContentContainer = styled.div`
   border-left: 1px solid grey; /* Light grey color */
   padding-left: 1.5rem;
@@ -69,11 +73,9 @@ const ExperienceItemWrapper = styled.div`
   margin-bottom: 3rem;
 `;
 
-// A flex container for the header portion, holding the title and logo.
 const ExperienceHeader = styled.div`
   display: flex;
   align-items: center;
-
 `;
 
 const ExperienceTitle = styled.h3`
@@ -82,7 +84,6 @@ const ExperienceTitle = styled.h3`
   font-family: 'YourHeaderFont', sans-serif; /* Change as needed */
 `;
 
-// The logo image for each experience.
 const Logo = styled.img`
   width: 5rem;
   height: 5rem;
@@ -116,8 +117,12 @@ function ExperienceItem({ experience }) {
     <ExperienceItemWrapper>
       <ExperienceHeader>
         <ExperienceTitle>{experience.title}</ExperienceTitle>
-        {/* Reference your logo in the public directory */}
-        <Logo style={{ backgroundColor: "rgba(13,29,65,255)" }} src={experience.logo} alt="Company Logo" />
+        {/* Use fixImagePath to adjust the logo path */}
+        <Logo
+          style={{ backgroundColor: "rgba(13,29,65,255)" }}
+          src={fixImagePath(experience.logo)}
+          alt="Company Logo"
+        />
       </ExperienceHeader>
       <Subtitle>{experience.locationDuration}</Subtitle>
       <DetailsList>
@@ -139,7 +144,7 @@ export default function ExperienceSection() {
         "Utilized Python’s Flask and JavaScript’s React for backend communication and frontend developer UI, built Docker image to enable usage for wider teams on Linux-based machines.",
         "Worked in AGILE development team, utilizing GitLab for code repository management."
       ],
-      logo: "peraton_logo.png"  // Place your Peraton logo in public folder
+      logo: "peraton_logo.png"  // Will be fixed to "/skylerhawkins/peraton_logo.png" in production if needed.
     },
     {
       title: "Peraton-Remotec, Systems Engineer Intern – Defense Mission Systems",
@@ -149,7 +154,7 @@ export default function ExperienceSection() {
         "Implemented a secure Virtual Network Computing (VNC) connection for Linux-based SSH remote access.",
         "Optimized technician workflow by reducing remote diagnostics time by ~80%."
       ],
-      logo: "peraton_logo.png"  // Place your Peraton-Remotec logo in public folder
+      logo: "peraton_logo.png"  // Same file as above.
     },
     {
       title: "Pennsylvania State University, Artificial Intelligence Researcher",
@@ -158,7 +163,7 @@ export default function ExperienceSection() {
         "Researched methods to improve LLM interpretation of graph-theory queries using TensorFlow.",
         "Designed testing frameworks to evaluate improvements in graph-based question-answering models."
       ],
-      logo: "psu_logo.png"  // Place your PSU logo in public folder
+      logo: "psu_logo.png"  // Will be adjusted as necessary.
     }
   ];
 
@@ -168,7 +173,7 @@ export default function ExperienceSection() {
       <GridBackground /> {/* Optional: Add grid background for visual effect */}
       <ContentContainer>
         {experienceData.map((exp, index) => (
-          <ExperienceItem  key={index} experience={exp} />
+          <ExperienceItem key={index} experience={exp} />
         ))}
       </ContentContainer>
     </Section>

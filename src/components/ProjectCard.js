@@ -1,9 +1,17 @@
 // components/ProjectCard.js
 "use client";
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+
+// Determine if we are in production.
+const isProd = process.env.NODE_ENV === 'production';
+
+// Helper function to prepend '/skylerhawkins' in production if not already present.
+const fixImagePath = (path) =>
+  isProd && !path.startsWith('/skylerhawkins')
+    ? `/skylerhawkins${path.startsWith('/') ? '' : '/'}${path}`
+    : path;
 
 // Keyframes for the animated rainbow gradient.
 const rainbowAnimation = keyframes`
@@ -22,7 +30,6 @@ const rainbowAnimation = keyframes`
 const CardWrapper = styled.div`
   position: relative;
   border-radius: 8px;
-  // padding: 2px; /* This creates the space for the border */
   border: 2px solid white;
   transition: transform 0.3s ease;
   
@@ -117,16 +124,6 @@ const GithubLogoWrapper = styled.div`
   }
 `;
 
-// GitHub logo styled component (not used directly here) can be retained for reference.
-const GithubLogo = styled.img`
-  width: 4vw;
-  height: 4vw;
-  object-fit: contain;
-  cursor: pointer;
-  margin: 0 1vw;
-  padding-bottom: 1vw;
-`;
-
 // Right section for the project title image.
 const ImageArea = styled.div`
   width: 150px; /* Adjust as needed */
@@ -162,7 +159,7 @@ export default function ProjectCard({
             <a href={githubUrl} target="_blank" rel="noopener noreferrer">
               <GithubLogoWrapper>
                 <Image
-                  src="github-mark-white.svg"
+                  src={fixImagePath("github-mark-white.svg")}
                   alt="GitHub Logo"
                   layout="fill"
                   objectFit="contain"
@@ -174,7 +171,7 @@ export default function ProjectCard({
         </InfoArea>
         {/* Right image area */}
         <ImageArea>
-          <img src={projectImage} alt={`${title} title image`} />
+          <img src={fixImagePath(projectImage)} alt={`${title} title image`} />
         </ImageArea>
       </CardContent>
     </CardWrapper>

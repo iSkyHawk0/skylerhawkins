@@ -22,7 +22,7 @@ const WidgetContainer = styled.div`
 
   transition: transform 0.3s ease;
   &:hover {
-  padding: 2px; /* This creates the space for the border */
+  
   transform: scale(1.02);
     border: none;
     }
@@ -93,7 +93,7 @@ export default function GithubWidget({
        
           <WidgetText>{text}</WidgetText>
           <a href={"https://github.com/Skyler-Hawkins"} target="_blank" rel="noopener noreferrer">
-          <GithubLogo src="github-mark-white.svg" alt="GitHub Logo" />
+          <GithubLogo src="/github-mark-white.svg" alt="GitHub Logo" />
           </a>
       </WidgetContent>
     </WidgetContainer>

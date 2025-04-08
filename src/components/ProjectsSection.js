@@ -70,7 +70,7 @@ export default function ProjectsSection() {
       description:
         "Developed for 2024 NittanyAI Challenge. AI-powered fashion classification tool. Developed a deep learning model in TensorFlow achieving 98% accuracy in clothing recognition. Integrated React for a dynamic UI, Next.js for backend, and Firebase for data management.",
       githubUrl: "https://github.com/lr619/FashionAIs.to", // Placeholder GitHub URL
-      projectImage: "/rewear_logo.png", // Already absolute, so remains as-is.
+      projectImage: "rewear_logo.png", // Already absolute, so remains as-is.
     },
     {
       title: "Minimax Chess Bot",

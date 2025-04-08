@@ -4,6 +4,20 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 
+// Define whether we're in production (to adjust image paths)
+const isProd = process.env.NODE_ENV === 'production';
+
+// Helper function: if in production, prepend the subpath to image URLs.
+// This ensures that an image like "/github-mark-white.svg"
+// becomes "/skylerhawkins/github-mark-white.svg" when deployed.
+const fixImagePath = (path) => {
+  // If path already starts with the subpath, don't duplicate it.
+  if (isProd && !path.startsWith('/skylerhawkins')) {
+    return `/skylerhawkins${path}`;
+  }
+  return path;
+};
+
 // Styled components for layout and styling
 const HeroContainer = styled.section`
   display: flex;
@@ -53,8 +67,6 @@ const IconLink = styled.a`
   }
 `;
 
-
-
 const ButtonGroup = styled.div`
   display: flex;
   gap: 1rem;
@@ -80,7 +92,7 @@ const LogoWrapper = styled.div`
   position: relative;
   width: 4vw;
   height: 4vw;
-  margin: 0rem;
+  margin: 0;
   padding-bottom: 10px;
   transition: transform 0.3s ease, filter 0.3s ease;
   
@@ -89,7 +101,6 @@ const LogoWrapper = styled.div`
     filter: brightness(1.2);
   }
 `;
-
 
 // Typewriter component to animate text
 function Typewriter({ text, speed = 100 }) {
@@ -131,28 +142,28 @@ export default function HeroSection() {
           target="_blank" 
           rel="noopener noreferrer"
         >
-        <LogoWrapper>
-        <Image
-          src="/github-mark-white.svg"
-          alt="GitHub Logo"
-          layout="fill"
-          objectFit="contain"
-        />
-        </LogoWrapper>
+          <LogoWrapper>
+            <Image
+              src={fixImagePath("/github-mark-white.svg")}
+              alt="GitHub Logo"
+              layout="fill"
+              objectFit="contain"
+            />
+          </LogoWrapper>
         </IconLink>
         <IconLink 
           href="https://www.linkedin.com/in/skyler-hawkins-19b17b204/" 
           target="_blank" 
           rel="noopener noreferrer"
         >
-        <LogoWrapper>
-        <Image
-          src="/linkedin.png"
-          alt="GitHub Logo"
-          layout="fill"
-          objectFit="contain"
-        />
-        </LogoWrapper>
+          <LogoWrapper>
+            <Image
+              src={fixImagePath("/linkedin.png")}
+              alt="LinkedIn Logo"
+              layout="fill"
+              objectFit="contain"
+            />
+          </LogoWrapper>
         </IconLink>
       </IconGroup>
       
