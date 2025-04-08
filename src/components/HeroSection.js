@@ -147,7 +147,7 @@ export default function HeroSection() {
         >
         <LogoWrapper>
         <Image
-          src="/LI-In-Bug.png"
+          src="/linkedin.png"
           alt="GitHub Logo"
           layout="fill"
           objectFit="contain"
