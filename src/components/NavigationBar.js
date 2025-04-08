@@ -30,10 +30,11 @@ const NavItem = styled.a`
 export default function NavigationBar() {
   return (
     <Nav>
-      <NavItem href="/" passHref legacyBehavior>
+      <NavItem>
+      <Link href="/" passHref legacyBehavior>
         <div style={{ fontWeight: 'bold', color: '#fff' }}>Skyler Hawkins</div>
-      </NavItem>
-      
+      </Link>
+      </NavItem>      
       <NavItems>
         <Link href="/" passHref legacyBehavior>
           <NavItem>Home</NavItem>
