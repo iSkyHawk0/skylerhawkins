@@ -90,6 +90,13 @@ const HeroButton = styled.a`
 `;
 
 const HeroWrapper = styled.div`
+  all: unset;
+  a {
+    text-decoration: none;
+    color: inherit; /* Inherit color from parent */
+    }
+
+
   padding: 0.8rem 1.5rem;
   font-size: 1rem;
   border: 1px solid #fff;
