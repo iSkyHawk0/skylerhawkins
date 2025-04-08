@@ -133,7 +133,7 @@ export default function HeroSection() {
         >
         <LogoWrapper>
         <Image
-          src="github-mark-white.svg"
+          src="/github-mark-white.svg"
           alt="GitHub Logo"
           layout="fill"
           objectFit="contain"
@@ -147,7 +147,7 @@ export default function HeroSection() {
         >
         <LogoWrapper>
         <Image
-          src="LI-In-Bug.png"
+          src="/LI-In-Bug.png"
           alt="GitHub Logo"
           layout="fill"
           objectFit="contain"
