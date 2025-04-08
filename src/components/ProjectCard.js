@@ -2,6 +2,8 @@
 "use client";
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
 // Keyframes for the animated rainbow gradient.
 const rainbowAnimation = keyframes`
@@ -20,11 +22,16 @@ const rainbowAnimation = keyframes`
 const CardWrapper = styled.div`
   position: relative;
   border-radius: 8px;
-  padding: 2px; /* This creates the space for the border */
+  // padding: 2px; /* This creates the space for the border */
+  border: 2px solid white;
   transition: transform 0.3s ease;
+  
   &:hover {
     transform: scale(1.02);
+    border: none;
+    padding: 2px;
   }
+  
   /* The pseudo-element used for the rainbow border */
   &::before {
     content: "";
@@ -49,6 +56,7 @@ const CardWrapper = styled.div`
     opacity: 0;
     transition: opacity 0.5s ease;
   }
+  
   &:hover::before {
     opacity: 1;
     animation: ${rainbowAnimation} 7s linear infinite;
@@ -94,14 +102,29 @@ const Description = styled.p`
   margin-right: 2rem;
 `;
 
-// GitHub logo, which links to the GitHub repository.
-const GithubLogo = styled.img`
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  cursor: pointer;
+// GithubLogoWrapper now includes a subtle scale and brightness effect on hover.
+const GithubLogoWrapper = styled.div`
+  position: relative;
+  width: 4vw;
+  height: 4vw;
   margin: 0 1rem;
   padding-bottom: 10px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+  }
+`;
+
+// GitHub logo styled component (not used directly here) can be retained for reference.
+const GithubLogo = styled.img`
+  width: 4vw;
+  height: 4vw;
+  object-fit: contain;
+  cursor: pointer;
+  margin: 0 1vw;
+  padding-bottom: 1vw;
 `;
 
 // Right section for the project title image.
@@ -122,6 +145,13 @@ export default function ProjectCard({
   githubUrl,
   projectImage,
 }) {
+  // Optional: Delay rendering until client mount to avoid hydration issues.
+  const [isMounted, setIsMounted] = useState(false);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+  if (!isMounted) return null;
+
   return (
     <CardWrapper>
       <CardContent>
@@ -130,7 +160,14 @@ export default function ProjectCard({
           <InfoHeader>
             <Title>{title}</Title>
             <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-              <GithubLogo src="/github-mark-white.svg" alt="GitHub Logo" />
+              <GithubLogoWrapper>
+                <Image
+                  src="/github-mark-white.svg"
+                  alt="GitHub Logo"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </GithubLogoWrapper>
             </a>
           </InfoHeader>
           <Description>{description}</Description>

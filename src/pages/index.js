@@ -1,6 +1,6 @@
 // pages/index.js
 "use client";
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import NavigationBar from '../components/NavigationBar';
 import HeroSection from '../components/HeroSection';
 import AnimatedBackground from '../components/AnimatedBackground';
@@ -36,15 +36,24 @@ const NavWrapper = styled.div`
   position: relative;
   z-index: 5;
 `;
+
 export default function Home() {
+  // Delay rendering until after mount to prevent initial layout flash.
+  const [isMounted, setIsMounted] = useState(false);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) return null;
+
   return (
     <PageWrapper>
       <NavWrapper>
         <NavigationBar />
       </NavWrapper>
-      <LandingWrapper >
+      <LandingWrapper>
         <AnimatedBackground />
-        <ContentWrapper id = "home">
+        <ContentWrapper id="home">
           <HeroSection />
         </ContentWrapper>
       </LandingWrapper>

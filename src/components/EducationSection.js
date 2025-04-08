@@ -8,6 +8,16 @@ const Section = styled.section`
   background-color: rgb(1, 1, 7); /* Dark blue color */
   color: #fff;
   font-family: 'YourBodyFont', sans-serif; /* Default body font */
+
+
+    @media (max-width: 1024px) {
+    padding: 4rem 5rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 4rem 2rem;
+  }
+  
 `;
 
 const Title = styled.h2`

@@ -8,6 +8,15 @@ const Section = styled.section`
   background-color: black;
   color: #fff;
   font-family: 'YourBodyFont', sans-serif;
+
+  @media (max-width: 1024px) {
+    padding: 4rem 10rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 4rem 5rem;
+  }
+
 `;
 
 const Title = styled.h2`

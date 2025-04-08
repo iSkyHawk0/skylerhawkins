@@ -3,22 +3,41 @@
 import React from 'react';
 import styled from 'styled-components';
 import ProjectCard from '../components/ProjectCard'; // Adjust the path as necessary
+import GithubWidget from '../components/GithubWidget';
+import SubtleBackground from '../components/SubtleBackground';
 
 const Section = styled.section`
+  
   padding: 4rem 15rem;
   min-height: 100vh;
-  background: #010107; /* Dark background for the projects section */
+  // background: #010107; /* Dark background for the projects section */
   color: #fff;
-`;
+  // background: transparent; /* Make the background transparent to see the grid */
+
+  @media (max-width: 1024px) {
+    padding: 4rem 5rem;
+  }
+  align-items: center;
+  @media (max-width: 768px) {
+    padding: 4rem 2rem;
+  
+  }
+  position: relative;
+  
+
+
+  `;
 
 const Title = styled.h2`
   font-size: 4.2rem;
   margin-bottom: 2rem;
   font-family: 'YourTitleFont', sans-serif;
+  z-index: 2;
 `;
 
 const SubTitle = styled.h3`
-  font-size: 3rem;
+z-index: 2;
+font-size: 3rem;
   margin: 3rem 0 1.5rem;
   font-family: 'YourSubtitleFont', sans-serif;
 `;
@@ -28,7 +47,15 @@ const ContentContainer = styled.div`
   flex-direction: column;
   gap: 2rem; /* Space between project cards */
 `;
-
+const TextContainer = styled.div`
+  flex: 1;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-family: 'Arial', sans-serif;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+`;
 export default function ProjectsSection() {
   const projectData = [
     {
@@ -37,15 +64,15 @@ export default function ProjectsSection() {
       description:
         "Developed for 2024 NittanyAI Challenge. AI-powered fashion classification tool. Developed a deep learning model in TensorFlow achieving 98% accuracy in clothing recognition. Integrated React for a dynamic UI, Next.js for backend, and Firebase for data management.",
       githubUrl: "https://github.com/lr619/FashionAIs.to", // Placeholder GitHub URL
-      projectImage: "/rewear-logo.png", // Used as the title image for the project
+      projectImage: "/rewear_logo.png", // Used as the title image for the project
     },
     {
       title: "Minimax Chess Bot",
       category: "AI/ML", // Default category when unsure
       description:
-        "A project implementing a chess bot using the minimax algorithm. More details coming soon.",
+        "Developed a depth 3 Minimax chess bot with alpha beta pruning and custom board evaluation function. Consistently beats up to 800 ELO Chess.com bots. ",
       githubUrl: "https://github.com/Skyler-Hawkins/Chess_Bot",
-      projectImage: "/chess-bot-placeholder.png", // Update with an actual image if available
+      projectImage: "mm_chessbot.png", // Update with an actual image if available
     },
     // Skeleton for Pokemon CLI Database
     {
@@ -69,7 +96,7 @@ export default function ProjectsSection() {
       title: "FitQuest",
       category: "Websites", // Default category when unsure
       description:
-        "My first ever website developed using React.A fitness plan generating platform. Taught me the basics of React states and how to safely use external API keys on a server-side generated website.",
+        "React-based fitness plan generation website. This was my first ever web develpoment project!  It taught me the basics of React states and how to safely use external API keys on a server-side generated website.",
       githubUrl: "https://github.com/Skyler-Hawkins/FitQuest",
       projectImage: "/fitquest.png", // Update with an actual image if available
     },
@@ -84,7 +111,11 @@ export default function ProjectsSection() {
 
   return (
     <Section id="projects">
+      <SubtleBackground />
       <Title>Projects</Title>
+      <TextContainer style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <GithubWidget />
+      </TextContainer>
       {aiProjects.length > 0 && (
         <>
           <SubTitle>AI/ML</SubTitle>
