@@ -89,6 +89,21 @@ const HeroButton = styled.a`
   }
 `;
 
+const HeroWrapper = styled.div`
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border: 1px solid #fff;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+  text-decoration: none;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+`;
+
 const LogoWrapper = styled.div`
   position: relative;
   width: 4vw;
@@ -170,7 +185,9 @@ export default function HeroSection() {
       
       <ButtonGroup>
         <HeroButton href="#about">About Me</HeroButton>
-        <Link href="/projects">Projects</Link>
+        <HeroWrapper >
+          <Link href="/projects">Projects</Link>
+        </HeroWrapper>
       </ButtonGroup>
     </HeroContainer>
   );
