@@ -49,7 +49,7 @@ const ContentContainer = styled.div`
 `;
 const TextContainer = styled.div`
   flex: 1;
-  font-size: 1.3rem;
+  font-size: 2.5rem;
   line-height: 1.6;
   font-family: 'Arial', sans-serif;
 

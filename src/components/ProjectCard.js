@@ -97,7 +97,7 @@ const Title = styled.h3`
 
 // Description paragraph.
 const Description = styled.p`
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin-top: 0.5rem;
   margin-right: 2rem;
 `;
