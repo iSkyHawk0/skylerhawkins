@@ -4,8 +4,7 @@
 const isProd = process.env.NODE_ENV === 'production';
 const nextConfig = {
   basePath: isProd ? '/skylerhawkins' : '',
-  assetPrefix: isProd? '/skylerhawkins' : '',
-  trailingSlash: true,
+  assetPrefix: isProd? '/skylerhawkins/' : '',
   images: {
     unoptimized: true,
   },
