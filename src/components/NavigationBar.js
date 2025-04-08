@@ -3,6 +3,9 @@ import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 
+// Set your basePath based on the environment
+const basePath = process.env.NODE_ENV === 'production' ? '/skylerhawkins' : '';
+
 const Nav = styled.nav`
   width: 100%;
   padding: 1rem 2rem;
@@ -31,23 +34,20 @@ const NavItem = styled.a`
 export default function NavigationBar() {
   return (
     <Nav>
-      <NavItem>
-      <Link href="/" passHref legacyBehavior>
-        <div style={{ fontWeight: 'bold', color: '#fff' }}>Skyler Hawkins</div>
+      <Link href={`${basePath}/`} passHref legacyBehavior>
+        <NavItem style={{ fontWeight: 'bold', color: '#fff' }}>Skyler Hawkins</NavItem>
       </Link>
-      </NavItem>      
       <NavItems>
-        <Link href="/" passHref legacyBehavior>
+        <Link href={`${basePath}/`} passHref legacyBehavior>
           <NavItem>Home</NavItem>
         </Link>
-        <Link href="/experience" passHref legacyBehavior>
+        <Link href={`${basePath}/experience`} passHref legacyBehavior>
           <NavItem>Experience</NavItem>
         </Link>
-
-        <Link href="/projects" passHref legacyBehavior>
+        <Link href={`${basePath}/projects`} passHref legacyBehavior>
           <NavItem>Projects</NavItem>
         </Link>
-        {/* Add /contact if desired */}
+        {/* Add additional links as needed */}
       </NavItems>
     </Nav>
   );
