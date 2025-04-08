@@ -114,14 +114,24 @@ export default function HeroSection() {
           target="_blank" 
           rel="noopener noreferrer"
         >
-          <Image src="github-mark-white.svg" alt="GitHub" width={32} height={32} />
+        <Image
+          src="github-mark-white.svg"
+          alt="GitHub Logo"
+          layout="fill"
+          objectFit="contain"
+        />
         </IconLink>
         <IconLink 
           href="https://www.linkedin.com/in/skyler-hawkins-19b17b204/" 
           target="_blank" 
           rel="noopener noreferrer"
         >
-          <Image src="LI-In-Bug.png" alt="LinkedIn" width={32} height={30} />
+        <Image
+          src="LI-In-Bug.png"
+          alt="GitHub Logo"
+          layout="fill"
+          objectFit="contain"
+        />
         </IconLink>
       </IconGroup>
       
